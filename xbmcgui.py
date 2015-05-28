@@ -675,11 +675,27 @@ class ListItem(object):
         self._list_item = {'label': label, 'label2': label2,
                            'iconImage': iconImage, 'thumbnailImage': thumbnailImage, 'path': path,
                            'stream_info': None,
-                           'info': {}, 'properties': {},
+                           'info': {}, 'properties': {'IsPlayable': 'false'},
                            'context_menu': None,
                            'subtitles': None,
                            'art': None}
         self._selected = False
+
+    def __str__(self):
+        """
+        String representation
+        !!! This is not a part of Kodi API !!!
+        :return:
+        """
+        return self.__unicode__().encode('utf-8', 'replace')
+
+    def __unicode__(self):
+        """
+        Unicode representation
+        !!! This is not a part of Kodi API !!!
+        :return:
+        """
+        return self._list_item['label']
 
     def addStreamInfo(self, type, values):
         """
