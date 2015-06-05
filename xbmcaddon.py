@@ -4,7 +4,7 @@
 
 
 class Addon(object):
-    def __init__(self, id='koditests.test.addon'):
+    def __init__(self, id=''):
         """Creates a new Addon class.
 
         id: string - id of the addon (autodetected in XBMC Eden)
@@ -12,7 +12,7 @@ class Addon(object):
         Example:
             self.Addon = xbmcaddon.Addon(id='script.recentlyadded')
         """
-        self._id = id
+        self._id = id if id else 'koditests.test.addon'
         self._settings = {}
 
     def getLocalizedString(self, id):
@@ -33,11 +33,7 @@ class Addon(object):
         Example:
         apikey = self.Addon.getSetting('apikey')
         """
-        try:
-            setting = self._settings[id]
-        except KeyError:
-            setting = ''
-        return setting
+        return self._settings.get(id, '')
 
     def setSetting(self, id, value):
         """Sets a script setting.

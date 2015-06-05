@@ -33,7 +33,7 @@ class _Plugin(object):
         """Class constructor"""
         self._items = []
         self.sys_argv = []
-        self._backstack = []
+        self._backstack = []  # Stores plugin calls
 
     def addDirectoryItem(self, handle, url, listitem, isFolder=False, totalItems=0):
         """Callback function to pass directory contents back to XBMC.
@@ -79,7 +79,7 @@ class _Plugin(object):
             print 'Enter "q" to quit.'
             selection = raw_input('Your selection: ')
             if selection == 'q' or (selection == '0' and not self._backstack):
-                print 'Exiting plugin test...'
+                print 'Exiting plugin test.'
                 self.sys_argv = []
                 break
             elif selection == '0' and self._backstack:
