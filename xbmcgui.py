@@ -674,8 +674,9 @@ class ListItem(object):
         """
         self._list_item = {'label': label, 'label2': label2,
                            'iconImage': iconImage, 'thumbnailImage': thumbnailImage, 'path': path,
-                           'stream_info': None,
-                           'info': {}, 'properties': {'IsPlayable': 'false'},
+                           'stream_info': {},
+                           'info': {},
+                           'properties': {'IsPlayable': 'false'},
                            'context_menu': None,
                            'subtitles': None,
                            'art': None}
@@ -1978,7 +1979,7 @@ class DialogProgressBG(object):
         """
         pass
 
-    def create(heading, message=''):
+    def create(self, heading, message=''):
         """
         create(heading[, message])--Create and show a background progress dialog.n
 
@@ -2003,7 +2004,7 @@ class DialogProgressBG(object):
         """
         return True
 
-    def update(percent, heading=None, message=None):
+    def update(self, percent, heading=None, message=None):
         """
         update([percent, heading, message])--Updates the background progress dialog.
 

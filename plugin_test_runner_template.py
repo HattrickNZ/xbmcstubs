@@ -8,8 +8,8 @@
 __id__ = 'plugin.video.example'
 # Starting script of your plugin
 __script__ = 'default'
-# Starting point of your plugin.
-# This is a starting point
+# Starting point of your plugin -
+# a functiion or a method
 __start_point__ = 'router'
 
 import sys
@@ -39,7 +39,10 @@ def main(*args):
     # (properties, return values, etc.)
     script = __import__(__script__)
     while plugin.sys_argv:
-        getattr(script, __start_point__)(plugin.sys_argv[2])
+        getattr(script, __start_point__)(
+        # If your plugin starting point takes parameters,
+        # you need to provide appropriate values here.
+        )
 
 
 if __name__ == '__main__':
